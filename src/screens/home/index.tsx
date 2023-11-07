@@ -5,6 +5,7 @@ import { Input } from '../../components/input'
 import { Button } from '../../components/button'
 import { Task } from '../../components/task'
 import { StatusText } from '../../components/statusText'
+import { cliboardIcon } from '../../../assets'
 
 type Task = {
   text: string
@@ -84,10 +85,15 @@ export function Home() {
           )}
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={() => (
-            <Text style={styles.listEmptyText}>
-              Ninguém chegou no evento ainda? Adicione participantes a sua lista
-              de presença.
-            </Text>
+            <View style={styles.listEmptyWrapper}>
+              <Image style={styles.listEmptyIcon} source={cliboardIcon}></Image>
+              <Text style={(styles.listEmptyText, styles.bold)}>
+                Você ainda não tem tarefas cadastradas
+              </Text>
+              <Text style={styles.listEmptyText}>
+                Crie tarefas e organize seus itens a fazer
+              </Text>
+            </View>
           )}
         />
       </View>

@@ -29,8 +29,26 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  listEmptyWrapper: {
+    alignItems: 'center',
+  },
+
+  listEmptyIcon: {
+    width: 56,
+    height: 56,
+    marginTop: 48,
+    marginBottom: 16,
+  },
+
   listEmptyText: {
-    color: '#F2F2F2',
+    fontFamily: 'Inter-Regular',
+    fontSize: 14,
+    color: '#808080',
+  },
+
+  bold: {
+    fontWeight: 'bold',
+    color: '#808080',
   },
 
   statusBox: {
