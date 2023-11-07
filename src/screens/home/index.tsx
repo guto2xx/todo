@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { View, Image, FlatList, Text, Alert } from 'react-native'
 import { styles } from './styles'
 import { Input } from '../../components/input'
@@ -15,6 +15,7 @@ type Task = {
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [taskText, setTaskText] = useState('')
+  const [taskFinishedCount, setTaskFinishedCount] = useState(0)
 
   function handleTaskAdd() {
     if (tasks.some((task) => task.text === taskText)) {
@@ -47,6 +48,26 @@ export function Home() {
     ])
   }
 
+  function handleFinishTask(text: string) {
+    setTasks((prevState) =>
+      prevState.map((task) => {
+        if (task.text !== text) {
+          task.finished = !task.finished
+        }
+        return task
+      })
+    )
+  }
+
+  useEffect(() => {
+    const count = Object.values(tasks).reduce((acc, curr) => {
+      if (curr.finished) ++acc
+      return acc
+    }, 0)
+
+    setTaskFinishedCount(count)
+  }, [tasks])
+
   return (
     <View style={styles.container}>
       <View style={styles.logoBox}>
@@ -66,8 +87,16 @@ export function Home() {
       </View>
 
       <View style={styles.statusBox}>
-        <StatusText text="Criadas" color="blue" value={5}></StatusText>
-        <StatusText text="Concluidas" color="purple" value={2}></StatusText>
+        <StatusText
+          text="Criadas"
+          color="blue"
+          value={tasks.length}
+        ></StatusText>
+        <StatusText
+          text="Concluidas"
+          color="purple"
+          value={taskFinishedCount}
+        ></StatusText>
       </View>
 
       <View style={styles.taskBox}>
@@ -80,6 +109,9 @@ export function Home() {
               text={item.text}
               onRemove={() => {
                 handleTaskRemove(item.text)
+              }}
+              onFinish={(text: string): void => {
+                handleFinishTask(text)
               }}
             />
           )}

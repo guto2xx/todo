@@ -7,16 +7,20 @@ import { Checkbox } from '../checkbox'
 type Props = {
   text: string
   onRemove: () => void
+  onFinish: (text: string) => void
 }
 
-export function Task({ text, onRemove }: Props) {
+export function Task({ text, onRemove, onFinish }: Props) {
   const [isChecked, setChecked] = useState(false)
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.checkboxWrapper}
-        onPress={() => setChecked(!isChecked)}
+        onPress={() => {
+          setChecked(!isChecked)
+          onFinish(text)
+        }}
       >
         <Checkbox
           style={styles.checkbox}
