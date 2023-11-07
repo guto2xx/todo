@@ -10,5 +10,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#262626',
     color: '#F2F2F2',
     marginRight: 4,
+    fontSize: 16,
+    fontFamily: 'Inter-Regular',
   },
 })

@@ -1,7 +1,8 @@
-import { Text, View, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import { styles } from './styles'
 import { Input } from '../../components/input'
 import { Button } from '../../components/button'
+import { Task } from '../../components/task'
 
 export function Home() {
   return (
@@ -15,7 +16,11 @@ export function Home() {
 
       <View style={styles.inputBox}>
         <Input placeholder="Adicione uma nova tarefa"></Input>
-        <Button></Button>
+        <Button type="create"></Button>
+      </View>
+
+      <View style={styles.taskBox}>
+        <Task></Task>
       </View>
     </View>
   )

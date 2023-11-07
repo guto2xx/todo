@@ -23,4 +23,9 @@ export const styles = StyleSheet.create({
     marginTop: -27,
     flexDirection: 'row',
   },
+
+  taskBox: {
+    width: '90%',
+    alignItems: 'center',
+  },
 })
