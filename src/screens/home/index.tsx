@@ -4,6 +4,7 @@ import { styles } from './styles'
 import { Input } from '../../components/input'
 import { Button } from '../../components/button'
 import { Task } from '../../components/task'
+import { StatusText } from '../../components/statusText'
 
 type Task = {
   text: string
@@ -61,6 +62,11 @@ export function Home() {
           value={taskText}
         ></Input>
         <Button type="create" onPress={handleTaskAdd}></Button>
+      </View>
+
+      <View style={styles.statusBox}>
+        <StatusText text="Criadas" color="blue" value={5}></StatusText>
+        <StatusText text="Concluidas" color="purple" value={2}></StatusText>
       </View>
 
       <View style={styles.taskBox}>

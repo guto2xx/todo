@@ -6,6 +6,7 @@ import { Home } from './src/screens/home'
 export default function App() {
   const [fontsLoaded] = useFonts({
     'Inter-Regular': require('./assets/fonts/Inter-Regular.ttf'),
+    'Inter-Bold': require('./assets/fonts/Inter-Bold.ttf'),
   })
 
   return (

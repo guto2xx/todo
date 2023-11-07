@@ -32,4 +32,13 @@ export const styles = StyleSheet.create({
   listEmptyText: {
     color: '#F2F2F2',
   },
+
+  statusBox: {
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+    marginTop: 32,
+    paddingLeft: 6,
+  },
 })
