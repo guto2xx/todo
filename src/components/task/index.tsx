@@ -4,7 +4,12 @@ import { styles } from './styles'
 import { Button } from '../../components/button'
 import { Checkbox } from '../checkbox'
 
-export function Task() {
+type Props = {
+  text: string
+  onRemove: () => void
+}
+
+export function Task({ text, onRemove }: Props) {
   const [isChecked, setChecked] = useState(false)
 
   return (
@@ -21,13 +26,11 @@ export function Task() {
           hitSlop={{ right: 20, left: 20, bottom: 20, top: 20 }}
         ></Checkbox>
 
-        <Text style={isChecked ? styles.textChecked : styles.text}>
-          Lavar a louça.
-        </Text>
+        <Text style={isChecked ? styles.textChecked : styles.text}>{text}</Text>
       </TouchableOpacity>
 
       <View style={styles.deleteWrapper}>
-        <Button type="delete"></Button>
+        <Button type="delete" onPress={onRemove}></Button>
       </View>
     </View>
   )

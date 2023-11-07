@@ -28,4 +28,8 @@ export const styles = StyleSheet.create({
     width: '90%',
     alignItems: 'center',
   },
+
+  listEmptyText: {
+    color: '#F2F2F2',
+  },
 })
