@@ -12,8 +12,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 12,
     paddingRight: 8,
-
-    margin: 20,
+    marginBottom: 8,
   },
 
   text: {

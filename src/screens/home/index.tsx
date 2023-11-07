@@ -99,36 +99,37 @@ export function Home() {
         ></StatusText>
       </View>
 
-      <View style={styles.taskBox}>
-        <FlatList
-          data={tasks}
-          keyExtractor={(item) => item.text}
-          renderItem={({ item }) => (
-            <Task
-              key={item.text}
-              text={item.text}
-              onRemove={() => {
-                handleTaskRemove(item.text)
-              }}
-              onFinish={(text: string): void => {
-                handleFinishTask(text)
-              }}
-            />
-          )}
-          showsVerticalScrollIndicator={false}
-          ListEmptyComponent={() => (
-            <View style={styles.listEmptyWrapper}>
-              <Image style={styles.listEmptyIcon} source={cliboardIcon}></Image>
-              <Text style={(styles.listEmptyText, styles.bold)}>
-                Você ainda não tem tarefas cadastradas
-              </Text>
-              <Text style={styles.listEmptyText}>
-                Crie tarefas e organize seus itens a fazer
-              </Text>
-            </View>
-          )}
-        />
-      </View>
+      {tasks.length === 0 && <View style={styles.separator} />}
+
+      <FlatList
+        style={styles.taskBox}
+        data={tasks}
+        keyExtractor={(item) => item.text}
+        renderItem={({ item }) => (
+          <Task
+            key={item.text}
+            text={item.text}
+            onRemove={() => {
+              handleTaskRemove(item.text)
+            }}
+            onFinish={(text: string): void => {
+              handleFinishTask(text)
+            }}
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <View style={styles.listEmptyWrapper}>
+            <Image style={styles.listEmptyIcon} source={cliboardIcon}></Image>
+            <Text style={(styles.listEmptyText, styles.bold)}>
+              Você ainda não tem tarefas cadastradas
+            </Text>
+            <Text style={styles.listEmptyText}>
+              Crie tarefas e organize seus itens a fazer
+            </Text>
+          </View>
+        )}
+      />
     </View>
   )
 }

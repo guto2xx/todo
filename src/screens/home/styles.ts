@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
+    height: '100%',
     flex: 1,
     backgroundColor: '#1A1A1A',
     alignItems: 'center',
@@ -26,7 +27,7 @@ export const styles = StyleSheet.create({
 
   taskBox: {
     width: '90%',
-    alignItems: 'center',
+    height: '60%',
   },
 
   listEmptyWrapper: {
@@ -58,5 +59,12 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 32,
     paddingLeft: 6,
+    paddingBottom: 20,
+  },
+
+  separator: {
+    width: '90%',
+    borderBottomColor: '#333333',
+    borderBottomWidth: 1,
   },
 })
